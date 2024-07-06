@@ -138,7 +138,7 @@ namespace ShareNet.Areas.Identity.Pages.Account
                     _context.Logi.Add(new Models.ShareNetLog() {UserId = userId, LogTime = DateTime.Now, Logtext = "Utworzone Nowe Konto dla użytkownika " + user.Email });
                     //utworzenie nowego folderu dla plików
 
-                    DirectoryInfo di = Directory.CreateDirectory(Configuration["AppSettings:UsersFolderForFiles"]+"/"+userId, UnixFileMode.GroupExecute | UnixFileMode.GroupRead | UnixFileMode.GroupWrite |UnixFileMode.UserExecute|UnixFileMode.UserRead|UnixFileMode.UserWrite|UnixFileMode.OtherExecute|UnixFileMode.OtherRead|UnixFileMode.OtherWrite);
+                    DirectoryInfo di = Directory.CreateDirectory(Configuration["AppSettings:UsersFolderForFiles"]+"/"+userId);
 
                     _context.Logi.Add(new Models.ShareNetLog() { UserId = userId, LogTime = DateTime.Now, Logtext = "Utworzono Folder do przechowywania plików użytkownika " + user.Email });
                     _context.SaveChanges();
